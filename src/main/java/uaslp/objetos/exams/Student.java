@@ -26,7 +26,7 @@ public class Student {
         if(p==3) p3=score;
     }
 
-    public Object getAverage() {
+    public double getAverage() {
         return (p1+p2+p3)/3;
     }
 }

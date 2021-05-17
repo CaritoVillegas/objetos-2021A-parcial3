@@ -4,12 +4,13 @@ import java.util.List;
 
 public class Group {
 
-    private int size;
+    private List<Student> students;
     private int capacity;
-    private boolean Availability;
+    private double average;
 
     public Group(int capacity){
         this.capacity = capacity;
+        students = new List<Student>();
     }
 
     private Object list[];
@@ -27,9 +28,6 @@ public class Group {
             return true;
     }
 
-    public double getAverage() {
-        return;
-    }
 
 
     public List<Student> getStudents() {
@@ -37,6 +35,10 @@ public class Group {
     }
 
     public void addStudent(Student lucia) {
+        students.add(Student);
+    }
+
+    public double getAverage() {
 
     }
 }
