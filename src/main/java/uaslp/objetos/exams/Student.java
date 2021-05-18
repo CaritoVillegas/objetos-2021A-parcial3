@@ -3,13 +3,12 @@ package uaslp.objetos.exams;
 public class Student {
     private String name;
     private int code;
-    private int p1,p2,p3;
-    private int score;
-    private double avarage;
+    private Integer score[];
 
     public Student(String name, int code){
-        this.name=name;
         this.code=code;
+        this.name=name;
+        score =new Integer[3];
     }
 
     public String getName() {
@@ -20,13 +19,23 @@ public class Student {
         return code;
     }
 
-    public void setScore(int p, int score) {
-        if(p==1) p1=score;
-        if(p==2) p2=score;
-        if(p==3) p3=score;
+    public void setScore(int index, int score) {
+        if(index>3 || index <1)
+        {
+            throw new InvalidPartialException();
+        }
+            this.score[index-1] = score;
     }
 
-    public double getAverage() {
-        return (p1+p2+p3)/3;
+    public double getAverage() throws MissingScoreException{
+        double average = 0;
+        for (int i=0;i<3;i++){
+            if (score[i] == null) {
+                throw new MissingScoreException("Missing partial "+ (i+1));
+            }
+            average =average + score[i];
+        }
+        average = average/3;
+        return average;
     }
 }
